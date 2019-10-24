@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="DocumentCrossReference.WpfApp.MainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DocumentCrossReference.WpfApp"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal">
+            <TextBlock Width="80" Margin="10 0">Folder:</TextBlock>
+            <TextBox x:Name="txtFolderPath" MinWidth="360"/>
+            <Button x:Name="btnBrowseFolder" Content="Browse" Click="BtnBrowseFolder_Click"/>
+            <Button x:Name="btnLoadFolder" Content="Load" Click="BtnLoadFolder_Click"/>
+        </StackPanel>
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" x:Name="txtStatus"/>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="txtFilter" TextChanged="TxtFilter_TextChanged"/>
+            <ListBox Grid.Row="1" x:Name="lstTerms" SelectionChanged="LstTerms_SelectionChanged"/>
+        </Grid>
+        <ListBox Grid.Row="2" Grid.Column="1" x:Name="lstResults" MouseDoubleClick="LstResults_MouseDoubleClick"/>
+    </Grid>
+</UserControl>
